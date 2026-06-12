@@ -1,0 +1,100 @@
+.card {
+  border-radius: 10px;
+  background: var(--bg-card);
+  transition: background-color 250ms var(--ease);
+}
+
+.card:hover {
+  background: var(--bg-card-hover);
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: clamp(28px, 3vw, 36px) clamp(28px, 3vw, 40px);
+  border: 0;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: default;
+}
+
+.title {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 1.9vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.numeral {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.indicator {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.indicator::before,
+.indicator::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 17px;
+  height: 1.5px;
+  background: var(--ink-soft);
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
+.indicator::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  transition:
+    opacity 200ms var(--ease),
+    transform 240ms var(--ease);
+}
+
+.open .indicator::after {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(90deg) scaleX(0);
+}
+
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 280ms var(--ease),
+    opacity 200ms var(--ease);
+}
+
+.panelInner {
+  overflow: hidden;
+  padding: 0 clamp(28px, 3vw, 40px);
+  transition: padding 280ms var(--ease);
+}
+
+.panel p {
+  max-width: 680px;
+  color: var(--ink-soft);
+  font-size: 1.06rem;
+  line-height: 1.65;
+}
+
+.open .panel {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.open .panelInner {
+  padding-bottom: clamp(28px, 3vw, 36px);
+}

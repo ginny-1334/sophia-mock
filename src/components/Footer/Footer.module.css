@@ -1,0 +1,51 @@
+.footer {
+  padding: clamp(48px, 6vw, 72px) var(--gutter) clamp(40px, 5vw, 60px);
+  border-top: 1px solid rgb(182 138 94 / 22%);
+  background: var(--surface);
+  box-shadow: 0 -6px 24px -18px rgb(74 63 56 / 40%);
+}
+
+.inner {
+  display: flex;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(28px, 4vw, 44px);
+  text-align: center;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(22px, 3vw, 44px);
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.links a:hover {
+  color: var(--gold);
+}
+
+.wordmark {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3vw, 2.5rem);
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.inner > p {
+  color: var(--ink-muted);
+  font-size: 0.82rem;
+}
+
+@media (max-width: 520px) {
+  .links {
+    flex-direction: column;
+    gap: 14px;
+  }
+}
